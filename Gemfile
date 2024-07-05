@@ -69,3 +69,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem 'bcrypt', '~> 3.1.7'
+gem 'stripe'
