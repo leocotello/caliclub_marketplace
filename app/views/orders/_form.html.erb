@@ -1,0 +1,17 @@
+<%= form_with(model: @order, local: true) do |form| %>
+  <div class="mb-4">
+    <%= form.label :product_id, 'Product', class: 'block text-lg font-medium text-gray-700' %>
+    <%= form.collection_select :product_id, Product.all, :id, :name, {}, class: 'block w-full mt-1 p-2 border border-gray-300 rounded' %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :quantity, 'Quantity', class: 'block text-lg font-medium text-gray-700' %>
+    <%= form.number_field :quantity, value: 1, min: 1, class: 'block w-full mt-1 p-2 border border-gray-300 rounded' %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :status, 'Status', class: 'block text-lg font-medium text-gray-700' %>
+    <%= form.text_field :status, value: 'Pending', readonly: true, class: 'block w-full mt-1 p-2 border border-gray-300 rounded bg-gray-200' %>
+  </div>
+  <div>
+    <%= form.submit 'Place Order', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+  </div>
+<% end %>

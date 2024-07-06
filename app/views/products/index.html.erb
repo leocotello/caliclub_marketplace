@@ -1,0 +1,14 @@
+<div class="container mx-auto p-6">
+  <div class="text-center">
+    <h1 class="text-5xl font-bold mb-4 text-gray-800">Welcome to CaliClub</h1>
+    <p class="text-xl mb-6 text-gray-600">Elevate your calisthenics training with our premium wooden rings.</p>
+    <% if Product.exists? %>
+      <%= link_to 'Buy Now', product_path(Product.first), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded' %>
+    <% else %>
+      <p class="text-red-500">No products available at the moment.</p>
+    <% end %>
+  </div>
+  <div class="flex justify-center mt-6">
+    <img src="<%= image_url('caliclub_rings.png') %>" alt="CaliClub Rings" class="w-1/2 rounded shadow-lg">
+  </div>
+</div>

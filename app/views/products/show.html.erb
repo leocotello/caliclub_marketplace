@@ -1,0 +1,16 @@
+<div class="container mx-auto p-6">
+  <div class="flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2">
+      <img src="<%= image_url('caliclub_rings.png') %>" alt="CaliClub Rings" class="rounded shadow-lg">
+    </div>
+    <div class="md:w-1/2 md:ml-6 mt-6 md:mt-0">
+      <h1 class="text-3xl font-bold mb-4 text-gray-800"><%= @product.name %></h1>
+      <p class="text-lg mb-4 text-gray-600"><%= @product.description %></p>
+      <p class="text-2xl font-semibold text-green-600 mb-6">$<%= @product.price %></p>
+      <%= link_to 'Order Now', new_order_path(product_id: @product.id), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+    </div>
+  </div>
+  <div class="mt-6">
+    <%= link_to 'Back', products_path, class: 'text-blue-500' %>
+  </div>
+</div>

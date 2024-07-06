@@ -1,7 +1,19 @@
 {
-  "name": "app",
+  "name": "caliclub_marketplace",
   "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.0.0",
+    "@hotwired/turbo-rails": "^7.0.0",
+    "@rails/activestorage": "^6.1.4-1",
+    "@rails/ujs": "^7.0.0",
+    "esbuild": "^0.12.29"
+  },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4"
   }
 }

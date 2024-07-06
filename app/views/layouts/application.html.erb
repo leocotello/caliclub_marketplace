@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CaliclubMarketplace</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CaliClub</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag 'tailwind', 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <nav class="bg-blue-600 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-white text-lg font-semibold">CaliClub</a>
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to 'My Orders', orders_path, class: 'text-white mr-4' %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'text-white' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'text-white mr-4' %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'text-white' %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
   </body>
 </html>
